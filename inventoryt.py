@@ -207,8 +207,6 @@ def findlocation():
                             space + str(((sheet_obj.cell(row = i, column = col_avaible)).value)))
         if (SKU == '0'):
             break
-        else:
-            print('Wrong action, please try again')
 
 def diff_hand_avaible():
     wb_obj.active = 2
@@ -227,9 +225,25 @@ def diff_hand_avaible():
             break
         else:
             print('Wrong action, please try again')
+def sold():
+    wb_obj.active = 3
+    sheet_obj = wb_obj.active
+    SKU = input('Please enter product SKU ')
+    for i in range(2, len(list(sheet_obj.rows))):
+        cell_obj = sheet_obj.cell(row = i, column = 1)
+        cell_obj_v = cell_obj.value
+        if ((str(SKU) == str(cell_obj_v)) |
+            (str(SKU) == str(((sheet_obj.cell(row = i, column = 2)).value)))):
+            print('Item ' + str(cell_obj_v) + ' was sold ' + )
+                    str(((sheet_obj.cell(row = i, column = 2)).value)) + 'times last 3 months')
+    while(True):
+        menu = input('Please enter 0 to go to main menu and save results')
+        if (menu == '0'):
+            break
+        else:
+            print('Wrong action, please try again')
 
 while(True):
-
     print('1 - Inventory')
     print('2 - Replenishment')
     print('3 - Double locations')
@@ -254,5 +268,7 @@ while(True):
         findlocation()
     elif (menu == '6'):
         diff_hand_avaible()
+    elif (menu == '7'):
+        sold()
     else:
         print('Wrong Action, please try again')
