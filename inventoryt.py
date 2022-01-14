@@ -176,7 +176,7 @@ def findlocation():
         if (str(SKU) == str(cell_obj_v)):
             print(str(cell_obj_v) +
                 ' ' + str(((sheet_obj.cell(row = i, column = col_bin)).value)) +
-                ' ' + str(((sheet_obj.cell(row = i, column = col_on_hand)).value))
+                ' ' + str(((sheet_obj.cell(row = i, column = col_on_hand)).value)) +
                 ' ' + str(((sheet_obj.cell(row = i, column = col_avaible)).value)))
     while(True):
         menu = input('Please enter 0 to go to main menu and save results')
