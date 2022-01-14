@@ -168,16 +168,59 @@ def doublelocations():
 def findlocation():
     wb_obj.active = 2
     sheet_obj = wb_obj.active
-    SKU = input('Please enter product SKU')
-    print("Item name   Location   On hand   Avaible")
+    pallet = True
+    pallet_v = input('Skip the pallets? ')
+    if ((str(pallet_v) == 'yes') |  (str(pallet_v) == 'Yes') |  (str(pallet_v) == 'YES')):
+        pallet = False
+    else:
+        pallet = True
+    while(True):
+        print('Please enter 0 to go to main menu')
+        SKU = input('Please enter product SKU ')
+        print("Item name   Location   On hand   Avaible")
+        for i in range(2, len(list(sheet_obj.rows))):
+            cell_obj = sheet_obj.cell(row = i, column = 1)
+            cell_obj_v = cell_obj.value
+            hand = ((sheet_obj.cell(row = i, column = col_on_hand)).value)
+            if ((int(hand) >= 0) & (int(hand) <= 9)):
+                space = '         '
+            elif ((int(hand) >= 10) & (int(hand) <= 99)):
+                space = '        '
+            else:
+                space = '       '
+            if(pallet == True):
+                if ((str(SKU) == str(cell_obj_v)) |
+                    (str(SKU) == str(((sheet_obj.cell(row = i, column = col_UPC)).value))) |
+                    (str(SKU) == str(((sheet_obj.cell(row = i, column = col_bin)).value)))):
+                    print(str(cell_obj_v) +
+                        '     ' + str(((sheet_obj.cell(row = i, column = col_bin)).value)) +
+                        '    ' + str(((sheet_obj.cell(row = i, column = col_on_hand)).value)) +
+                        space + str(((sheet_obj.cell(row = i, column = col_avaible)).value)))
+            else:
+                if(checkifpallet(i,3) == False):
+                    if ((str(SKU) == str(cell_obj_v)) |
+                        (str(SKU) == str(((sheet_obj.cell(row = i, column = col_UPC)).value))) |
+                        (str(SKU) == str(((sheet_obj.cell(row = i, column = col_bin)).value)))):
+                        print(str(cell_obj_v) +
+                            '     ' + str(((sheet_obj.cell(row = i, column = col_bin)).value)) +
+                            '    ' + str(((sheet_obj.cell(row = i, column = col_on_hand)).value)) +
+                            space + str(((sheet_obj.cell(row = i, column = col_avaible)).value)))
+        if (SKU == '0'):
+            break
+        else:
+            print('Wrong action, please try again')
+
+def diff_hand_avaible():
+    wb_obj.active = 2
+    sheet_obj = wb_obj.active
     for i in range(1, len(list(sheet_obj.rows))):
-        cell_obj = sheet_obj.cell(row = i, column = 1)
-        cell_obj_v = cell_obj.value
-        if (str(SKU) == str(cell_obj_v)):
-            print(str(cell_obj_v) +
+        hand = str(((sheet_obj.cell(row = i, column = col_on_hand)).value))
+        avaible = str(((sheet_obj.cell(row = i, column = col_avaible)).value))
+        if (hand != avaible):
+            print(str(sheet_obj.cell(row = i, column = col_name).value) +
                 ' ' + str(((sheet_obj.cell(row = i, column = col_bin)).value)) +
-                ' ' + str(((sheet_obj.cell(row = i, column = col_on_hand)).value)) +
-                ' ' + str(((sheet_obj.cell(row = i, column = col_avaible)).value)))
+                ' ' + str(hand) +
+                ' ' + str(avaible))
     while(True):
         menu = input('Please enter 0 to go to main menu and save results')
         if (menu == '0'):
@@ -192,6 +235,7 @@ while(True):
     print('3 - Double locations')
     print('4 - Test func')
     print('5 - Find location')
+    print('6 - Diffrence "on hand" and "avaible" ')
     print('9 - Close application')
     print('0 - Main menu')
     menu = input('Please enter action:')
@@ -208,5 +252,7 @@ while(True):
         testfunc()
     elif (menu == '5'):
         findlocation()
+    elif (menu == '6'):
+        diff_hand_avaible()
     else:
         print('Wrong Action, please try again')
