@@ -8,7 +8,7 @@ path = input('Please enter path of excel file')
 
 # Give the location of the file
 if (path == ''):
-    path = ".\\INVENTORY.xlsx"
+    path = "INVENTORY.xlsx"
 blacklist = ['96PF250', '96PF444', '96PF251', '96GT15P', '96BOX004', '96FM003A', '96FM003P'
             '96FM005A', '96FM005P', '9696912L', '9696912LB', '9696912M', '9696912MB', '9696912XL',
             '9696912XLB', '9696929L', '9696929LB', '9696929M', '9696929MB', '9696929XL', '9696929XLB',
