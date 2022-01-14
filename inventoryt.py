@@ -6,6 +6,14 @@ import openpyxl
 file1 = open("MyFile.txt","w")
 path = input('Please enter path of excel file')
 
+col_name = 1
+col_display = 2
+col_bin = 3
+col_avaible = 4
+col_preffered = 5
+col_on_hand = 6
+col_UPC = 7
+
 # Give the location of the file
 if (path == ''):
     path = "INVENTORY.xlsx"
@@ -161,13 +169,15 @@ def findlocation():
     wb_obj.active = 2
     sheet_obj = wb_obj.active
     SKU = input('Please enter product SKU')
+    print("Item name   Location   On hand   Avaible")
     for i in range(1, len(list(sheet_obj.rows))):
         cell_obj = sheet_obj.cell(row = i, column = 1)
         cell_obj_v = cell_obj.value
         if (str(SKU) == str(cell_obj_v)):
             print(str(cell_obj_v) +
-                ' ' + str(((sheet_obj.cell(row = i, column = 3)).value)) +
-                ' ' + str(((sheet_obj.cell(row = i, column = 4)).value)))
+                ' ' + str(((sheet_obj.cell(row = i, column = col_bin)).value)) +
+                ' ' + str(((sheet_obj.cell(row = i, column = col_on_hand)).value))
+                ' ' + str(((sheet_obj.cell(row = i, column = col_avaible)).value)))
     while(True):
         menu = input('Please enter 0 to go to main menu and save results')
         if (menu == '0'):
