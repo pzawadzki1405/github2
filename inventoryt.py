@@ -234,8 +234,8 @@ def sold():
         cell_obj_v = cell_obj.value
         if ((str(SKU) == str(cell_obj_v)) |
             (str(SKU) == str(((sheet_obj.cell(row = i, column = 2)).value)))):
-            print('Item ' + str(cell_obj_v) + ' was sold ' + )
-                    str(((sheet_obj.cell(row = i, column = 2)).value)) + 'times last 3 months')
+            print('Item ' + str(cell_obj_v) + ' was sold ' +
+                    str((sheet_obj.cell(row = i, column = 3)).value) + ' times last 3 months')
     while(True):
         menu = input('Please enter 0 to go to main menu and save results')
         if (menu == '0'):
@@ -250,7 +250,7 @@ while(True):
     print('4 - Test func')
     print('5 - Find location')
     print('6 - Diffrence "on hand" and "avaible" ')
-    print('9 - Close application')
+    print('7 - Check item selling ')
     print('0 - Main menu')
     menu = input('Please enter action:')
     if (menu == '9'):
