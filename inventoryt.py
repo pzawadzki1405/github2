@@ -239,7 +239,7 @@ def sold():
                 (str(SKU) == str(((sheet_obj.cell(row = i, column = 2)).value)))):
                 print('Item ' + str(cell_obj_v) + ' was sold ' +
                         str((sheet_obj.cell(row = i, column = 3)).value) + ' times last 3 months')
-                        found = True
+                found = True
         if (found == False):
             print('Item was sold 0 times last 3 months')
         if (SKU == '0'):
