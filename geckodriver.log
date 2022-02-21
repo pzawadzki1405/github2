@@ -4090,3 +4090,31 @@ console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message f
 1643490845358	Marionette	INFO	Stopped listening on port 54489
 console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
 JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1643660583177	geckodriver	INFO	Listening on 127.0.0.1:60446
+1643660586221	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60447" "-no-remote" "-profile" "C:\\Users\\wareh\\AppData\\Local\\Temp\\rust_mozprofileluQS6Q"
+1643660586781	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\wareh\\AppData\\Local\\Temp\\rust_mozprofileluQS6Q\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60447/devtools/browser/1352f205-9c98-46c3-808c-1b814c0a1082
+1643660589495	Marionette	INFO	Listening on port 60452
+1643660589947	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://6241176-sb1.app.netsuite.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://6241176-sb1.app.netsuite.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://6241176-sb1.app.netsuite.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1643662750623	Marionette	INFO	Stopped listening on port 60452
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+remote-debugging-port" "61749" "-no-remote" "-profile" "C:\\Users\\wareh\\AppData\\Local\\Temp\\rust_mozprofileiG2ZHU"
+1643662668533	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\wareh\\AppData\\Local\\Temp\\rust_mozprofileiG2ZHU\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:61749/devtools/browser/9fcd0896-1755-4844-92d0-1489364526bf
+1643662670656	Marionette	INFO	Listening on port 61756
+1643662670940	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://6241176-sb1.app.netsuite.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://6241176-sb1.app.netsuite.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://6241176-sb1.app.netsuite.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1643662749526	Marionette	INFO	Stopped listening on port 61756
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
