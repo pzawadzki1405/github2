@@ -59,10 +59,15 @@ def checkifpallet(row_value, column_value):
     #print(str(aisle))
 
 def testfunc():
-    wb_obj.active = 2
+    #wb_obj.active = 2
     #sheet_obj = wb_obj.active
-    for i in range(1, 100):
-        checkifpallet(i, 3)
+    #for i in range(1, 100):
+    #    checkifpallet(i, 3)
+    sku = input('PLEASE ENTER SKU: ')
+    if (sku == ''):
+        sku = '96PF444'
+    whereami(sku)
+
     while(True):
         menu = input('Please enter 0 to go to main menu')
         if (menu == '0'):
@@ -244,6 +249,25 @@ def sold():
             print('Item was sold 0 times last 3 months')
         if (SKU == '0'):
             break
+
+def whereami(sku):
+    wb_obj.active = 2
+    sheet_obj = wb_obj.active
+    #checkifpallet(sku)
+    lista = []
+    count = 0
+    prefered = '06-24-A'
+    for i in range(2, len(list(sheet_obj.rows))):
+        cell_obj = sheet_obj.cell(row = i, column = col_name)
+        cell_obj_v = cell_obj.value
+        if (str(sku) == str(cell_obj_v)):
+            lista.append([str(sheet_obj.cell(row = i, column = col_bin).value),
+                        str(sheet_obj.cell(row = i, column = col_avaible).value)])
+    print(lista)
+    for i in range(0, len(lista)):
+        if (lista[i][0] == '06-24-A'):
+            print('TU JEST: ', lista[i])
+
 while(True):
     print('1 - Inventory')
     print('2 - Replenishment')
